@@ -1,5 +1,13 @@
 /// <reference types="cypress" />
-import * as todoPage from '../page-objects/todoPage'
+import {
+    navigate,
+    addTodo,
+    toggleTodo,
+    showOnlyActiveTodos,
+    showOnlyCompletedTodos,
+    showAllTodos,
+    validateNumberOfTodosShown,
+} from '../page-objects/todo-page'
 
 describe('visual validation', () => {
 

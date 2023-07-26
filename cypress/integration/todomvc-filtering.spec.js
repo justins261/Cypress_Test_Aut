@@ -1,37 +1,47 @@
 /// <reference types="cypress" />
 
+import {
+    navigate,
+    addTodo,
+    toggleTodo,
+    showOnlyActiveTodos,
+    showOnlyCompletedTodos,
+    showAllTodos,
+    validateNumberOfTodosShown,
+} from '../page-objects/todo-page'
+
 describe('Filtering', () => {
 
     beforeEach(() => {
-        todoPage.navigate()
+        navigate()
 
-        todoPage.addTodo('Clean room')
-        todoPage.addTodo('Learn JavaScript')
-        todoPage.addTodo('Use Cypress')
+        addTodo('Clean room')
+        addTodo('Learn JavaScript')
+        addTodo('Use Cypress')
 
-        todoPage.toggleTodo(1)
+        toggleTodo(1)
 
     })
 
 
     it('should filter "Active" correctly', () => {
-        todoPage.showOnlyActiveTodos()
+        showOnlyActiveTodos()
 
-        todoPage.validateNumberOfTodosShown(2)
+        validateNumberOfTodosShown(2)
 
     })
 
     it('should filter "Completed" correctly', () => {
-        todoPage.showOnlyCompletedTodos()
+        showOnlyCompletedTodos()
 
-        todoPage.validateNumberOfTodosShown(1)
+        validateNumberOfTodosShown(1)
 
     })
 
     it('should filter "All" correctly', () => {
-        todoPage.showAllTodos()
+        showAllTodos()
 
-        todoPage.validateNumberOfTodosShown(3)
+        validateNumberOfTodosShown(3)
 
     })
 

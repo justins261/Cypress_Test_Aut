@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 export class TodoPage {
 
     navigate() {
@@ -8,7 +10,6 @@ export class TodoPage {
         cy.get('.new-todo').type(todoText + "{enter}");
 
     }
-
 
 
     toggleTodo(todoIndex) {
