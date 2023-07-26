@@ -129,7 +129,7 @@
     "p-retry" "^4.6.2"
     "teen_process" "^1.16.0"
 
-"@applitools/eyes-cypress@^3.27.1":
+"@applitools/eyes-cypress@^3.34.1":
   "integrity" "sha512-BLeENVXmi8Xnr2HbWAVTcNj23P7ie1daIWCaqtrMW0ttsXONp9hwdgCdYsE8JKIL1pYput/QyTQTUSwfl8p4JA=="
   "resolved" "https://registry.npmjs.org/@applitools/eyes-cypress/-/eyes-cypress-3.34.1.tgz"
   "version" "3.34.1"

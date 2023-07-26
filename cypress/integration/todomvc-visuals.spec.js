@@ -9,15 +9,32 @@ import {
     validateNumberOfTodosShown,
 } from '../page-objects/todo-page'
 
-describe('visual validation', () => {
+describe('filtering', function () {
+    beforeEach(() => {
+        navigate()
 
-    before(() => todoPage.navigate())
+        addTodo('Clean room')
+        addTodo('Learn JavaScript')
+        addTodo('Use Cypress')
 
-
-    it('Should look good', () => {
-        todoPage.addTodo('Clean room')
-        todoPage.addTodo('Learn Java')
-
+        toggleTodo(1)
     })
 
+    it('should filter "Active" correctly', () => {
+        showOnlyActiveTodos()
+
+        validateNumberOfTodosShown(2)
+    })
+
+    it('should filter "Completed" correctly', () => {
+        showOnlyCompletedTodos()
+
+        validateNumberOfTodosShown(1)
+    })
+
+    it('should filter "All" correctly', () => {
+        showAllTodos()
+
+        validateNumberOfTodosShown(3)
+    })
 })
