@@ -14,6 +14,6 @@
     "cypress": "^4.2.0"
   },
   "dependencies": {
-    "@applitools/eyes-cypress": "^3.34.1"
+    "@applitools/eyes-cypress": "^3.27.1"
   }
 }

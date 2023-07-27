@@ -1,40 +1,79 @@
 /// <reference types="cypress" />
-import {
-    navigate,
-    addTodo,
-    toggleTodo,
-    showOnlyActiveTodos,
-    showOnlyCompletedTodos,
-    showAllTodos,
-    validateNumberOfTodosShown,
-} from '../page-objects/todo-page'
+import * as todoPage from '../page-objects/todo-page'
 
-describe('filtering', function () {
-    beforeEach(() => {
-        navigate()
+describe('visual validation', () => {
+    before(() => cy.visit('http://todomvc-app-for-testing.surge.sh/?different-title-color'))
 
-        addTodo('Clean room')
-        addTodo('Learn JavaScript')
-        addTodo('Use Cypress')
+    beforeEach(() =>
+        cy.eyesOpen({
+            appName: 'TAU TodoMVC',
+            batchName: 'TAU TodoMVC',
+            browser: [
+                { name: 'chrome', width: 1024, height: 768 },
+                { name: 'chrome', width: 800, height: 600 },
+                { name: 'firefox', width: 1024, height: 768 },
+                { deviceName: 'iPhone X' },
+            ]
+        })
+    )
 
-        toggleTodo(1)
-    })
+    afterEach(() => cy.eyesClose())
 
-    it('should filter "Active" correctly', () => {
-        showOnlyActiveTodos()
+    it('should look good', () => {
+        cy.eyesCheckWindow('empty todo list')
 
-        validateNumberOfTodosShown(2)
-    })
+        todoPage.addTodo('Clean room')
+        todoPage.addTodo('Learn javascript')
 
-    it('should filter "Completed" correctly', () => {
-        showOnlyCompletedTodos()
+        cy.eyesCheckWindow('two todos')
 
-        validateNumberOfTodosShown(1)
-    })
+        todoPage.toggleTodo(0)
 
-    it('should filter "All" correctly', () => {
-        showAllTodos()
-
-        validateNumberOfTodosShown(3)
+        cy.eyesCheckWindow('mark as completed')
     })
 })
+
+
+
+
+
+// /// <reference types="cypress" />
+// import {
+//     navigate,
+//     addTodo,
+//     toggleTodo,
+//     showOnlyActiveTodos,
+//     showOnlyCompletedTodos,
+//     showAllTodos,
+//     validateNumberOfTodosShown,
+// } from '../page-objects/todo-page'
+
+// describe('filtering', function () {
+//     beforeEach(() => {
+//         navigate()
+
+//         addTodo('Clean room')
+//         addTodo('Learn JavaScript')
+//         addTodo('Use Cypress')
+
+//         toggleTodo(1)
+//     })
+
+//     it('should filter "Active" correctly', () => {
+//         showOnlyActiveTodos()
+
+//         validateNumberOfTodosShown(2)
+//     })
+
+//     it('should filter "Completed" correctly', () => {
+//         showOnlyCompletedTodos()
+
+//         validateNumberOfTodosShown(1)
+//     })
+
+//     it('should filter "All" correctly', () => {
+//         showAllTodos()
+
+//         validateNumberOfTodosShown(3)
+//     })
+// })

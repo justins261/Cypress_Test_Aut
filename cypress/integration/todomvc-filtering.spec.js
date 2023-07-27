@@ -8,7 +8,7 @@ import {
     showOnlyCompletedTodos,
     showAllTodos,
     validateNumberOfTodosShown,
-} from '../page-objects/todo-page'
+} from '/Users/yostinsegura/Documents/Cypress-Tests-Test Aut University/page-objects/todo-page.js'
 
 describe('Filtering', () => {
 

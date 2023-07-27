@@ -3,17 +3,15 @@
 import {
     navigate,
     addTodo,
-    toggleTodo,
     validateTodoText,
+    toggleTodo,
     clearCompleted,
     validateTodoCompletedState,
     validateToggleState,
     validateNumberOfTodosShown,
-} from '../page-objects/todo-page'
+} from '/Users/yostinsegura/Documents/Cypress-Tests-Test Aut University/page-objects/todo-page.js'
 
 describe('To Do s Actions', () => {
-
-    const todoPage = new TodoPage()
 
     beforeEach(() => {
         navigate()
