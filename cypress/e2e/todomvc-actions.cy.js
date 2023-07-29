@@ -9,7 +9,7 @@ import {
     validateTodoCompletedState,
     validateToggleState,
     validateNumberOfTodosShown,
-} from '/Users/yostinsegura/Documents/Cypress-Tests-Test Aut University/page-objects/todo-page.js'
+} from '../../page-objects/todo-page.js'
 
 describe('To Do s Actions', () => {
 
